@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSSchool CV</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+</head>
+<body>
+    <div class="progress" id="progress"></div>
+
+    <div class="content">
+        <div class="profile">
+            <div class="about">
+                <img src="https://sun9-56.userapi.com/c836634/v836634542/34bf2/1ZReQBv4qWQ.jpg" alt="avatar">
+                <h1 class="name">Konstantin Bozhko</h1>
+                <span class="direction relative line">Front End Developer</span>
+            </div>
+            <div class="contact">
+                <span class="text">+375(29)151-54-28</span>
+                <span class="text">lomjector98@gmail.com</span>
+                <span class="text relative line">Minsk, Belarus</span>
+            </div>
+            <div class="social">
+                <a target="_blank" href="https://vk.com/kokosik9" class="vk">
+                    <i class="fab fa-vk"></i>
+                    <div>VK</div>
+                </a>
+                <a target="_blank" href="https://t.me/Kosyak1" class="telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                    <div>Telegram</div>
+                </a>
+                <a id="discord" class="discord">
+                    <i class="fab fa-discord"></i>
+                    <div>Discord</div>
+                </a>
+                <div class="discord-menu" id="dscMenu">
+                    <span id="copy">
+                        <span id="login">Konstantin#7555</span>
+                        <div class="copy">
+                            <span>Copy</span>
+                            <i class="far fa-copy"></i>
+                        </div>
+                    </span>
+                    <span class="close" id="close">X</span>
+                </div>
+                <div id="copied" class="copied">
+                    <span>Copied</span>
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="aboutme">
+                <h2 class="heading2">About me</h2>
+                <span>
+                    I am a 2nd year student at the Plekhanov Russian University of Economics. 
+                    I am 18 years old. I am engaged in self-study in the Front End direction. 
+                    From the very childhood I set myself a goal - to become a programmer. 
+                    And I still strive for my goal, discovering new directions.
+                </span>
+            </div>
+            <div class="education">
+                <h2 class="heading2">Education</h2>
+                <span>
+                    <ul>
+                        <li>I graduated from high school.</li>
+                        <li>I passed programming courses at the ITStep Academy.</li>
+                        <li>I study at Plekhanov Russian University of Economics</li>
+                    </ul>
+                </span>
+            </div>
+            <div class="skills">
+                <h2 class="heading2">Skills</h2>
+                <span>
+                    <ul>
+                        <li>Adaptive page layout in HTML & CSS</li>
+                        <li>Layout using JS</li>
+                        <li>Development of algorithms for JS</li>
+                        <li>Component layout on React</li>
+                        <li>Basic knowledge NodeJS</li>
+                        <li>Familiar with the build system Webpack/gulp</li>
+                        <li>Basic knowledge C++</li>
+                        <li>Basic knowledge C#</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let progress = document.getElementById('progress');
+        let discord = document.getElementById('discord');
+        let dscMenu = document.getElementById('dscMenu');
+
+        window.addEventListener('scroll', e  => {
+            let scrollPosition = (document.documentElement.scrollTop ? document.documentElement : document.body).scrollTop;
+            let pageProgressWidth = Math.min(100, scrollPosition / (document.body.scrollHeight - window.innerHeight) * 100);
+            progress.style.width = pageProgressWidth + '%';
+        });
+
+        discord.onclick = () => {
+            let menu = document.getElementById("dscMenu");
+            let close = document.getElementById("close");
+            close.onclick = () => {
+                menu.style.display = "none";
+            }
+            menu.style.display = "block";
+        }
+
+        dscMenu.onclick = () => {
+            let login = document.getElementById("login");
+            navigator.clipboard.writeText("Konstantin#7555")
+            .then(() => {
+                let copied = document.getElementById("copied");
+                copied.style.display = "block";
+                setTimeout(() => {
+                    copied.style.display = "none";
+                }, 2000)
+            })
+            .catch(err => console.log(err));
+            dscMenu.style.display = "none";
+        }
+    </script>
+</body>
+</html>
